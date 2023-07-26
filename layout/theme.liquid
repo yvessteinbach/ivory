@@ -92,7 +92,7 @@
                 {% else %}
                   <a href="/account">{{ 'layout.customer.account' | t }}</a>
                 {% endif %}
-                  {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                <a href="/account/logout">{{ 'layout.customer.log_out' | t | customer_logout_link }}</a>
               {% else %}
                 <a class="header__login" href="/account/login">{{ 'layout.customer.log_in' | t | customer_login_link }}</a>
               {% endif %}
