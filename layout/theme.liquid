@@ -87,12 +87,11 @@
     
               {% if customer %}
                 {% if customer.first_name != blank %}
-                  {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                {% else %}
+                  <a class="header__login" href="/account">{{first_name}}</a>
                 {% endif %}
-                  {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                {{customer_logout_link}}
               {% else %}
-                <a class="header__login" href="/account/login">{{ 'layout.customer.log_in' | t | customer_login_link }}</a>
+                {{customer_login_link}}
               {% endif %}
     
               <a class="header__cart-container" href="/cart">Cart | <span data-cart-number="" class="header__cart--number">{{ cart.item_count }}</span></a>
