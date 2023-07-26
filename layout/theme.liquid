@@ -88,8 +88,7 @@
               {% if customer %}
                 {% capture first_name %}<a class="header__login" href="/account">{{ customer.first_name }}</a>{% endcapture %}
               {% else %}
-              <a class="header__login" href="/account/login">Sign in</a>
-                {{ 'layout.customer.log_in' | t | customer_login_link }}
+                <a class="header__login" href="/account/login">{{ 'layout.customer.log_in' | t | customer_login_link }}</a>
               {% endif %}
     
               <a class="header__cart-container" href="/cart">Cart | <span data-cart-number="" class="header__cart--number">{{ cart.item_count }}</span></a>
