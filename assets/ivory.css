@@ -67,7 +67,7 @@
     text-transform: uppercase;
   }
   .header__login a {
-    padding: 0 0 0 -10px;
+    margin: 0 0 0 -10px;
   }
 
   .header__menu-list {
