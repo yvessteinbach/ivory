@@ -2,7 +2,7 @@
 
 
 @media only screen and (min-width: 1200px) {
-    main {
+    #main {
       margin: 0 auto;
       max-width: 90vw;
       padding-left: 0;
