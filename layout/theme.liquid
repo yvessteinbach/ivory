@@ -44,10 +44,8 @@
 
 </head>
 
-<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}" >
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
   <div id="main">
-    <div id="PageContainer" class="is-moved-by-drawer">
-
       <!-- Header -->
       <header class="header__container">
         <div class="header">
@@ -149,12 +147,6 @@
       </div>
       <!-- End Header -->
   
-      <main class="wrapper main-content" role="main">
-  
-        {{ content_for_layout }}
-  
-      </main>
-  
       <!-- begin site-footer -->
       <footer class="site-footer small--text-center" role="contentinfo">
         <div class="wrapper">
@@ -250,7 +242,6 @@
         </div>
       </footer>
       <!-- //site-footer -->
-    </div>
   </main>
 
   {{ 'fastclick.min.js' | asset_url | script_tag }}
