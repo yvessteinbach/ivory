@@ -87,7 +87,7 @@
     
               <a class="header__login" href="/de-ch/account/login">Sign in</a>
     
-              <a class="header__cart-container" href="/de-ch/cart">Cart | <span data-cart-number="" class="header__cart--number">0</span></a>
+              <a class="header__cart-container" href="/de-ch/cart">Cart | <span data-cart-number="" class="header__cart--number">{{ cart.item_count }}</span></a>
     
             </div>
           </div>
@@ -142,13 +142,11 @@
       </div>
       <!-- End Header -->
   
-      <!-- 
       <main class="wrapper main-content" role="main">
   
         {{ content_for_layout }}
   
       </main>
-      -->
   
       <!-- begin site-footer -->
       <footer class="site-footer small--text-center" role="contentinfo">
