@@ -87,7 +87,7 @@
     
               {% if customer %}
                 {% if customer.first_name != blank %}
-                  <a class="header__login" href="/account">{{first_name }}</a>
+                  {% capture first_name %}<a class="header__login" href="/account">{{ customer.first_name }}</a>{% endcapture %}
                 {% else %}
                   <a href="/account">{{ 'layout.customer.account' | t }}</a>
                 {% endif %}
