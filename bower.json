@@ -1,16 +1,8 @@
 {
-  "name": "timber",
-  "version": "2.2.2",
+  "name": "ivorytheme",
+  "version": "1.0",
   "keywords": [
-    "shopify",
-    "theme",
-    "framework",
-    "css",
-    "js",
-    "sass",
-    "mobile-first",
-    "responsive",
-    "front-end"
+    "ivory"
   ],
   "main": [
     "assets/*",
@@ -23,10 +15,10 @@
   "ignore": [
     ".*"
   ],
-  "homepage": "https://github.com/Shopify/Timber",
+  "homepage": "https://ivory-clo.com",
   "authors": [
-    "Carson Shold <carson.shold@shopify.com>"
+    "Yves Steinbach"
   ],
-  "description": "The Ultimate Shopify Theme Framework",
+  "description": "Custom IVORY Shopify Theme",
   "license": "MIT"
 }
