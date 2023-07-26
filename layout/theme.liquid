@@ -88,9 +88,7 @@
               {% if customer %}
                 {% if customer.first_name != blank %}
                   {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-                  {{first_name }}
                 {% else %}
-                  <a href="/account">{{ 'layout.customer.account' | t }}</a>
                 {% endif %}
                   {{ 'layout.customer.log_out' | t | customer_logout_link }}
               {% else %}
