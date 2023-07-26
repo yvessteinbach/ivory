@@ -49,253 +49,156 @@
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+  <main>
+    <div id="PageContainer" class="is-moved-by-drawer">
 
-  <div id="NavDrawer" class="drawer drawer--left">
-    <div class="drawer__header">
-      <div class="drawer__title h3">{{ 'layout.drawers.browse' | t }}</div>
-      <div class="drawer__close js-drawer-close">
-        <button type="button" class="icon-fallback-text">
-          <span class="icon icon-x" aria-hidden="true"></span>
-          <span class="fallback-text">{{ 'layout.drawers.close_menu' | t }}</span>
-        </button>
-      </div>
-    </div>
-    <!-- begin mobile-nav -->
-    <ul class="mobile-nav">
-      <li class="mobile-nav__item mobile-nav__search">
-        {% include 'search-bar' %}
-      </li>
-      {% for link in linklists.main-menu.links %}
-        {% comment %}
-          Create a dropdown menu by naming a linklist the same as a link in the parent nav
-
-          More info on dropdowns:
-            - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
-        {% endcomment %}
-        {% assign child_list_handle = link.title | handleize %}
-        {% if linklists[child_list_handle].links != blank %}
-          <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
-            <div class="mobile-nav__has-sublist">
-              <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
-              <div class="mobile-nav__toggle">
-                <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
-                  <span class="icon icon-plus" aria-hidden="true"></span>
-                  <span class="fallback-text">See More</span>
-                </button>
-                <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
-                  <span class="icon icon-minus" aria-hidden="true"></span>
-                  <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
-                </button>
+      <!-- Header -->
+      <header class="header__container">
+        <div class="header">
+          <div class="header__logo-container">
+            <a href="" class="header__logo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="74.2" height="33.8" viewBox="0 0 74.2 33.8">
+                <g>
+                    <path d="M2751.659 2006.074q-.341.243-1.045.85t-1.773 1.58q-1.412-.584-4.083-1.9l-.146 1.75a8.038 8.038 0 0 0 .437 3.3 12.08 12.08 0 0 0 1.847 3.257 6.184 6.184 0 0 1-3.3-1.361 2.519 2.519 0 0 1-.583-.535q-.39-.438-1.069-1.166a11.676 11.676 0 0 1-.973.8q-.437.316-.68.511a5.315 5.315 0 0 1-1.895.729 7.51 7.51 0 0 0 1.846-5.2l-.1-3.208a4.226 4.226 0 0 0-1.409-.194h-1.069v-1.41a24.763 24.763 0 0 1 2.575-.874v-11.073q0-2.187-1.117-2.868l-1.167.729-.535-.389 4.083-3.645a6.07 6.07 0 0 1 3.354 4.763l5.006-4.714q4.86 1.651 4.86 7.436v10.79a35.9 35.9 0 0 0-3.064 2.042zm-1.263-13.95a1.49 1.49 0 0 0-.267-.8 5.068 5.068 0 0 0-.656-.8 4.575 4.575 0 0 0-.876-.68 4.656 4.656 0 0 0-.923-.438l-2.916 2.576v11.131q1.506.389 2.891.826t2.747.924z" transform="translate(-2737.418 -1982.744)"></path>
+                    <path d="M2762.5 1998.443v5.055l4.083 1.8 3.208-2.042.534.584q-.631.389-1.288.826t-1.385.972l-4.228 2.965a22.061 22.061 0 0 0-6.708-2.43 4.9 4.9 0 0 0 1.361-3.548v-12.978a34.03 34.03 0 0 0 3.329-1.75q1.629-.97 3.233-2.089l6.27 6.269q-5.349 3.742-8.409 6.366zm-.048-9.478v8.36l4.617-3.646z" transform="translate(-2737.418 -1982.744)"></path>
+                    <path d="M2788.793 1987.555l-4.423 5.979 4.569 2.819v8.943a14.7 14.7 0 0 0-3.159 1.458c-.261.163-.632.4-1.118.7s-1.07.688-1.75 1.142a10.96 10.96 0 0 0-4.909-1.264 12.586 12.586 0 0 0-4.91 1.118l-.631-.437 5.784-8.263-4.666-2.576v-7.485a21.379 21.379 0 0 0 5.978-4.035q4.083 1.993 6.222 1.993l1.263-.145a1.885 1.885 0 0 0 1.264-.511 1.539 1.539 0 0 0 .583-1.19 4.327 4.327 0 0 0-1.069-1.847l-.243-.438q0-.777 1.166-.777 1.458 0 1.458 1.8a5.967 5.967 0 0 1-1.409 3.016zm-6.951 9.332l-5.4 7a14.8 14.8 0 0 1 3.159-.291 12.07 12.07 0 0 1 5.25 1.312l.048-6.464zm2.382-6.415q-.681.048-1.458.048a12.962 12.962 0 0 1-4.861-1.069l-.048 5.589 2.916 1.507 4.715-6.222c-.388.066-.811.114-1.264.147z" transform="translate(-2737.418 -1982.744)"></path>
+                    <path d="M2800.75 2008.8a22.254 22.254 0 0 0-8.749-3.839q1.313-1.068 1.312-3.743v-11.519a16.3 16.3 0 0 0 6.9-3.888 20.273 20.273 0 0 0 7.728 3.4v15.845a19.461 19.461 0 0 0-7.191 3.744zm2.624-17.206l-5.589-2.138v13.414q.825.342 1.677.681t1.774.681q1.263.486 2.138.729z" transform="translate(-2737.418 -1982.744)"></path>
+                </g>
+            </svg>
+            </a>
+          </div>
+    
+          <div class="header__navigation--second">
+            <div class="header__icons--container">
+    
+              <div class="header-search--btn">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.025" height="14.025" viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
+                  <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
+                   c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
+                   C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
+                   S32.459,40,21.983,40z"></path>
+                </svg>
               </div>
+    
+              <div class="header__icon--world">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14.025" height="14.025" viewBox="0 0 14.025 14.025">
+                  <path d="M1189.865 2268.423a7.012 7.012 0 1 1-7.013 7.013 7.02 7.02 0 0 1 7.013-7.013m.175 3.576l.261-.011a10.258 10.258 0 0 0 1.948-.274l.287-.069-.115-.271c-.1-.244-.214-.474-.329-.687a3.925 3.925 0 0 0-1.707-1.8l-.345-.141V2272m-.351 0v-3.256l-.344.141a3.915 3.915 0 0 0-1.707 1.8 7.426 7.426 0 0 0-.329.687l-.115.271.286.069a10.279 10.279 0 0 0 1.949.274l.26.011m3.184-.455l.223-.076a8.332 8.332 0 0 0 1.224-.53l.31-.166-.259-.238a6.624 6.624 0 0 0-2.358-1.4l-.835-.286.561.681a6.3 6.3 0 0 1 .662.994 8.6 8.6 0 0 1 .382.808l.09.217m-6.016 0l.089-.217a8.71 8.71 0 0 1 .383-.807 6.2 6.2 0 0 1 .662-1l.561-.681-.835.286a6.616 6.616 0 0 0-2.358 1.4l-.259.238.31.166a8.337 8.337 0 0 0 1.224.53l.223.076m6.7 3.716h2.97l-.017-.266a6.609 6.609 0 0 0-1.513-3.8l-.134-.163-.183.1a8.41 8.41 0 0 1-1.461.657l-.23.079.072.232a11.093 11.093 0 0 1 .487 2.913l.009.241m-10.358 0h2.97l.008-.241a11.093 11.093 0 0 1 .487-2.913l.073-.232-.23-.079a8.344 8.344 0 0 1-1.461-.657l-.183-.1-.134.163a6.588 6.588 0 0 0-1.512 3.8l-.018.266m6.839 0h3.169l-.01-.26a11.024 11.024 0 0 0-.477-2.8l-.07-.226-.229.058a10.55 10.55 0 0 1-2.142.308l-.241.009v2.911m-3.519 0h3.168v-2.911l-.24-.009a10.53 10.53 0 0 1-2.142-.308l-.23-.058-.07.226a11 11 0 0 0-.475 2.8l-.011.26m8.344 4.578l.134-.163a6.609 6.609 0 0 0 1.513-3.8l.017-.267h-2.97l-.009.241a11.08 11.08 0 0 1-.487 2.913l-.072.232.23.079a8.528 8.528 0 0 1 1.461.657l.183.1m-2.213-.941l.07-.226a11.017 11.017 0 0 0 .477-2.8l.01-.26h-3.169v2.911l.241.009a10.55 10.55 0 0 1 2.142.308l.229.058m-5.575 0l.23-.058a10.53 10.53 0 0 1 2.142-.308l.24-.009v-2.911h-3.168l.011.26a10.987 10.987 0 0 0 .475 2.8l.07.226m-2.212.941l.183-.1a8.494 8.494 0 0 1 1.461-.657l.23-.079-.073-.232a11.08 11.08 0 0 1-.487-2.913l-.008-.241h-2.97l.018.267a6.588 6.588 0 0 0 1.512 3.8l.134.163m5.175 2.291l.345-.142a3.927 3.927 0 0 0 1.707-1.8c.115-.212.226-.443.329-.687l.115-.271-.287-.069a10.137 10.137 0 0 0-1.948-.273l-.261-.012v3.257m-.351 0v-3.257l-.26.012a10.159 10.159 0 0 0-1.949.273l-.286.069.115.271a7.367 7.367 0 0 0 .329.687 3.918 3.918 0 0 0 1.707 1.8l.344.142m1.488-.1l.836-.285a6.649 6.649 0 0 0 2.358-1.4l.259-.239-.31-.166a8.435 8.435 0 0 0-1.224-.53l-.223-.076-.09.218a8.337 8.337 0 0 1-.382.806 6.2 6.2 0 0 1-.662.995l-.562.681m-2.624 0l-.562-.681a6.2 6.2 0 0 1-.662-.995 8.577 8.577 0 0 1-.383-.806l-.089-.218-.223.076a8.337 8.337 0 0 0-1.224.53l-.31.166.259.239a6.641 6.641 0 0 0 2.358 1.4l.836.285" transform="translate(-1182.852 -2268.423)"></path>
+                </svg>
+              </div>
+    
+              <a class="header__login" href="/de-ch/account/login">Sign in</a>
+    
+              <a class="header__cart-container" href="/de-ch/cart">Cart | <span data-cart-number="" class="header__cart--number">0</span></a>
+    
             </div>
-            <ul class="mobile-nav__sublist">
-              {% for childlink in linklists[child_list_handle].links %}
-                <li class="mobile-nav__item {% if childlink.active %} mobile-nav__item--active{% endif %}">
-                  <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% else %}
-          <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
-            <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-
-      {% comment %}
-        If customer accounts are enabled, provide login and create account links
-      {% endcomment %}
-      {% if shop.customer_accounts_enabled %}
-        {% if customer %}
-          <li class="mobile-nav__item">
-            {% if customer.first_name != blank %}
-              {% capture first_name %}{{ customer.first_name }}{% endcapture %}
-              <a href="/account">{{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}</a>
-            {% else %}
-              <a href="/account">{{ 'layout.customer.account' | t }}</a>
+          </div>
+        </div>
+      </header>
+      <!-- End Header -->
+  
+      <main class="wrapper main-content" role="main">
+  
+        {{ content_for_layout }}
+  
+      </main>
+  
+      <!-- begin site-footer -->
+      <footer class="site-footer small--text-center" role="contentinfo">
+        <div class="wrapper">
+          <div class="grid">
+            {% if settings.footer_social_enable %}
+              <div class="grid__item large--one-third medium--one-half">
+                <h3>{{ 'layout.footer.social_title' | t }}</h3>
+                  <ul class="inline-list social-icons">
+                    {% if settings.social_twitter_link != blank %}
+                      <li>
+                        <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
+                          <span class="icon icon-twitter" aria-hidden="true"></span>
+                          <span class="fallback-text">Twitter</span>
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% if settings.social_facebook_link != blank %}
+                      <li>
+                        <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
+                          <span class="icon icon-facebook" aria-hidden="true"></span>
+                          <span class="fallback-text">Facebook</span>
+                        </a>
+                      </li>
+                    {% endif %}
+                  </ul>
+              </div>
             {% endif %}
-          </li>
-          <li class="mobile-nav__item">
-            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-          </li>
-        {% else %}
-          <li class="mobile-nav__item">
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
-          </li>
-          <li class="mobile-nav__item">
-            {{ 'layout.customer.create_account' | t | customer_register_link }}
-          </li>
-        {% endif %}
-      {% endif %}
-    </ul>
-    <!-- //mobile-nav -->
-  </div>
-  {% if settings.ajax_cart_method == "drawer" %}
-    <div id="CartDrawer" class="drawer drawer--right">
-      <div class="drawer__header">
-        <div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
-        <div class="drawer__close js-drawer-close">
-          <button type="button" class="icon-fallback-text">
-            <span class="icon icon-x" aria-hidden="true"></span>
-            <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
-          </button>
-        </div>
-      </div>
-      <div id="CartContainer"></div>
-    </div>
-  {% endif %}
-
-
-
-  <div id="PageContainer" class="is-moved-by-drawer">
-
-    <!-- Header -->
-    <header class="header__container">
-      <div class="header">
-        <div class="header__logo-container">
-          <a href="" class="header__logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="74.2" height="33.8" viewBox="0 0 74.2 33.8">
-              <g>
-                  <path d="M2751.659 2006.074q-.341.243-1.045.85t-1.773 1.58q-1.412-.584-4.083-1.9l-.146 1.75a8.038 8.038 0 0 0 .437 3.3 12.08 12.08 0 0 0 1.847 3.257 6.184 6.184 0 0 1-3.3-1.361 2.519 2.519 0 0 1-.583-.535q-.39-.438-1.069-1.166a11.676 11.676 0 0 1-.973.8q-.437.316-.68.511a5.315 5.315 0 0 1-1.895.729 7.51 7.51 0 0 0 1.846-5.2l-.1-3.208a4.226 4.226 0 0 0-1.409-.194h-1.069v-1.41a24.763 24.763 0 0 1 2.575-.874v-11.073q0-2.187-1.117-2.868l-1.167.729-.535-.389 4.083-3.645a6.07 6.07 0 0 1 3.354 4.763l5.006-4.714q4.86 1.651 4.86 7.436v10.79a35.9 35.9 0 0 0-3.064 2.042zm-1.263-13.95a1.49 1.49 0 0 0-.267-.8 5.068 5.068 0 0 0-.656-.8 4.575 4.575 0 0 0-.876-.68 4.656 4.656 0 0 0-.923-.438l-2.916 2.576v11.131q1.506.389 2.891.826t2.747.924z" transform="translate(-2737.418 -1982.744)"></path>
-                  <path d="M2762.5 1998.443v5.055l4.083 1.8 3.208-2.042.534.584q-.631.389-1.288.826t-1.385.972l-4.228 2.965a22.061 22.061 0 0 0-6.708-2.43 4.9 4.9 0 0 0 1.361-3.548v-12.978a34.03 34.03 0 0 0 3.329-1.75q1.629-.97 3.233-2.089l6.27 6.269q-5.349 3.742-8.409 6.366zm-.048-9.478v8.36l4.617-3.646z" transform="translate(-2737.418 -1982.744)"></path>
-                  <path d="M2788.793 1987.555l-4.423 5.979 4.569 2.819v8.943a14.7 14.7 0 0 0-3.159 1.458c-.261.163-.632.4-1.118.7s-1.07.688-1.75 1.142a10.96 10.96 0 0 0-4.909-1.264 12.586 12.586 0 0 0-4.91 1.118l-.631-.437 5.784-8.263-4.666-2.576v-7.485a21.379 21.379 0 0 0 5.978-4.035q4.083 1.993 6.222 1.993l1.263-.145a1.885 1.885 0 0 0 1.264-.511 1.539 1.539 0 0 0 .583-1.19 4.327 4.327 0 0 0-1.069-1.847l-.243-.438q0-.777 1.166-.777 1.458 0 1.458 1.8a5.967 5.967 0 0 1-1.409 3.016zm-6.951 9.332l-5.4 7a14.8 14.8 0 0 1 3.159-.291 12.07 12.07 0 0 1 5.25 1.312l.048-6.464zm2.382-6.415q-.681.048-1.458.048a12.962 12.962 0 0 1-4.861-1.069l-.048 5.589 2.916 1.507 4.715-6.222c-.388.066-.811.114-1.264.147z" transform="translate(-2737.418 -1982.744)"></path>
-                  <path d="M2800.75 2008.8a22.254 22.254 0 0 0-8.749-3.839q1.313-1.068 1.312-3.743v-11.519a16.3 16.3 0 0 0 6.9-3.888 20.273 20.273 0 0 0 7.728 3.4v15.845a19.461 19.461 0 0 0-7.191 3.744zm2.624-17.206l-5.589-2.138v13.414q.825.342 1.677.681t1.774.681q1.263.486 2.138.729z" transform="translate(-2737.418 -1982.744)"></path>
-              </g>
-          </svg>
-          </a>
-        </div>
+            {% if settings.footer_newsletter_enable %}
+              <div class="grid__item large--one-third push--large--one-third medium--one-half">
+                {% comment %}
+                  MailChimp is the go-to newsletter service for Shopify.
+                  Use the link below to find your MailChimp form action
+                  and insert it in your site settings.
   
-        <div class="header__navigation--second">
-          <div class="header__icons--container">
+                  If the form action URL is not set in the theme settings,
+                  it will fallback to a customer form so you can still capture the email.
   
-            <div class="header-search--btn">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.025" height="14.025" viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
-                <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
-                 c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
-                 C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
-                 S32.459,40,21.983,40z"></path>
-              </svg>
-            </div>
+                  MailChimp newsletter integration and requirement:
+                   - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
+                {% endcomment %}
+                <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
+                {% if settings.newsletter_form_action != blank %}
+                  <form action="{{ settings.newsletter_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
+                    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                    <span class="input-group-btn">
+                      <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                    </span>
+                  </form>
+                {% else %}
+                  {% form 'customer' %}
+                    {{ form.errors | default_errors }}
+                    {% if form.posted_successfully? %}
+                      <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                    {% else %}
+                      <div class="input-group">
+                        <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <span class="input-group-btn">
+                          <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                        </span>
+                      </div>
+                    {% endif %}
+                  {% endform %}
+                {% endif %}
   
-            <div class="header__icon--world">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14.025" height="14.025" viewBox="0 0 14.025 14.025">
-                <path d="M1189.865 2268.423a7.012 7.012 0 1 1-7.013 7.013 7.02 7.02 0 0 1 7.013-7.013m.175 3.576l.261-.011a10.258 10.258 0 0 0 1.948-.274l.287-.069-.115-.271c-.1-.244-.214-.474-.329-.687a3.925 3.925 0 0 0-1.707-1.8l-.345-.141V2272m-.351 0v-3.256l-.344.141a3.915 3.915 0 0 0-1.707 1.8 7.426 7.426 0 0 0-.329.687l-.115.271.286.069a10.279 10.279 0 0 0 1.949.274l.26.011m3.184-.455l.223-.076a8.332 8.332 0 0 0 1.224-.53l.31-.166-.259-.238a6.624 6.624 0 0 0-2.358-1.4l-.835-.286.561.681a6.3 6.3 0 0 1 .662.994 8.6 8.6 0 0 1 .382.808l.09.217m-6.016 0l.089-.217a8.71 8.71 0 0 1 .383-.807 6.2 6.2 0 0 1 .662-1l.561-.681-.835.286a6.616 6.616 0 0 0-2.358 1.4l-.259.238.31.166a8.337 8.337 0 0 0 1.224.53l.223.076m6.7 3.716h2.97l-.017-.266a6.609 6.609 0 0 0-1.513-3.8l-.134-.163-.183.1a8.41 8.41 0 0 1-1.461.657l-.23.079.072.232a11.093 11.093 0 0 1 .487 2.913l.009.241m-10.358 0h2.97l.008-.241a11.093 11.093 0 0 1 .487-2.913l.073-.232-.23-.079a8.344 8.344 0 0 1-1.461-.657l-.183-.1-.134.163a6.588 6.588 0 0 0-1.512 3.8l-.018.266m6.839 0h3.169l-.01-.26a11.024 11.024 0 0 0-.477-2.8l-.07-.226-.229.058a10.55 10.55 0 0 1-2.142.308l-.241.009v2.911m-3.519 0h3.168v-2.911l-.24-.009a10.53 10.53 0 0 1-2.142-.308l-.23-.058-.07.226a11 11 0 0 0-.475 2.8l-.011.26m8.344 4.578l.134-.163a6.609 6.609 0 0 0 1.513-3.8l.017-.267h-2.97l-.009.241a11.08 11.08 0 0 1-.487 2.913l-.072.232.23.079a8.528 8.528 0 0 1 1.461.657l.183.1m-2.213-.941l.07-.226a11.017 11.017 0 0 0 .477-2.8l.01-.26h-3.169v2.911l.241.009a10.55 10.55 0 0 1 2.142.308l.229.058m-5.575 0l.23-.058a10.53 10.53 0 0 1 2.142-.308l.24-.009v-2.911h-3.168l.011.26a10.987 10.987 0 0 0 .475 2.8l.07.226m-2.212.941l.183-.1a8.494 8.494 0 0 1 1.461-.657l.23-.079-.073-.232a11.08 11.08 0 0 1-.487-2.913l-.008-.241h-2.97l.018.267a6.588 6.588 0 0 0 1.512 3.8l.134.163m5.175 2.291l.345-.142a3.927 3.927 0 0 0 1.707-1.8c.115-.212.226-.443.329-.687l.115-.271-.287-.069a10.137 10.137 0 0 0-1.948-.273l-.261-.012v3.257m-.351 0v-3.257l-.26.012a10.159 10.159 0 0 0-1.949.273l-.286.069.115.271a7.367 7.367 0 0 0 .329.687 3.918 3.918 0 0 0 1.707 1.8l.344.142m1.488-.1l.836-.285a6.649 6.649 0 0 0 2.358-1.4l.259-.239-.31-.166a8.435 8.435 0 0 0-1.224-.53l-.223-.076-.09.218a8.337 8.337 0 0 1-.382.806 6.2 6.2 0 0 1-.662.995l-.562.681m-2.624 0l-.562-.681a6.2 6.2 0 0 1-.662-.995 8.577 8.577 0 0 1-.383-.806l-.089-.218-.223.076a8.337 8.337 0 0 0-1.224.53l-.31.166.259.239a6.641 6.641 0 0 0 2.358 1.4l.836.285" transform="translate(-1182.852 -2268.423)"></path>
-              </svg>
-            </div>
-  
-            <a class="header__login" href="/de-ch/account/login">Sign in</a>
-  
-            <a class="header__cart-container" href="/de-ch/cart">Cart | <span data-cart-number="" class="header__cart--number">0</span></a>
-  
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- End Header -->
-
-    <main class="wrapper main-content" role="main">
-
-      {{ content_for_layout }}
-
-    </main>
-
-    <!-- begin site-footer -->
-    <footer class="site-footer small--text-center" role="contentinfo">
-      <div class="wrapper">
-        <div class="grid">
-          {% if settings.footer_social_enable %}
-            <div class="grid__item large--one-third medium--one-half">
-              <h3>{{ 'layout.footer.social_title' | t }}</h3>
-                <ul class="inline-list social-icons">
-                  {% if settings.social_twitter_link != blank %}
-                    <li>
-                      <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter">
-                        <span class="icon icon-twitter" aria-hidden="true"></span>
-                        <span class="fallback-text">Twitter</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_facebook_link != blank %}
-                    <li>
-                      <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook">
-                        <span class="icon icon-facebook" aria-hidden="true"></span>
-                        <span class="fallback-text">Facebook</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                </ul>
-            </div>
-          {% endif %}
-          {% if settings.footer_newsletter_enable %}
-            <div class="grid__item large--one-third push--large--one-third medium--one-half">
+              </div>
+            {% endif %}
+            <div class="grid__item text-center">
+              <hr>
               {% comment %}
-                MailChimp is the go-to newsletter service for Shopify.
-                Use the link below to find your MailChimp form action
-                and insert it in your site settings.
-
-                If the form action URL is not set in the theme settings,
-                it will fallback to a customer form so you can still capture the email.
-
-                MailChimp newsletter integration and requirement:
-                 - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
+                Loop through available payment methods and show their icons.
               {% endcomment %}
-              <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
-              {% if settings.newsletter_form_action != blank %}
-                <form action="{{ settings.newsletter_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
-                  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
-                  <span class="input-group-btn">
-                    <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
-                  </span>
-                </form>
-              {% else %}
-                {% form 'customer' %}
-                  {{ form.errors | default_errors }}
-                  {% if form.posted_successfully? %}
-                    <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
-                  {% else %}
-                    <div class="input-group">
-                      <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
-                      <input type="hidden" name="contact[tags]" value="newsletter">
-                      <span class="input-group-btn">
-                        <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
-                      </span>
-                    </div>
-                  {% endif %}
-                {% endform %}
-              {% endif %}
-
+              {% unless shop.enabled_payment_types == empty %}
+                {% assign payment_icons_available = 'amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
+                <h4 class="text-center">{{ 'layout.footer.accepted_payments' | t }}</h4>
+                <ul class="inline-list payment-icons">
+                  {% for type in shop.enabled_payment_types %}
+                    {% if payment_icons_available contains type %}
+                      <li>
+                        <span class="icon-fallback-text">
+                          <span class="icon icon-{{type}}" aria-hidden="true"></span>
+                          <span class="fallback-text">{{ type | replace: '_',' '}}</span>
+                        </span>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endunless %}
+              <a href="http://shopify.com/timber">Timber Theme Framework</a> by <a href="http://www.shopify.com?ref=Timber" title="Shopify.com">Shopify</a><br>
+              <small>{{ powered_by_link }}</small>
             </div>
-          {% endif %}
-          <div class="grid__item text-center">
-            <hr>
-            {% comment %}
-              Loop through available payment methods and show their icons.
-            {% endcomment %}
-            {% unless shop.enabled_payment_types == empty %}
-              {% assign payment_icons_available = 'amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' %}
-              <h4 class="text-center">{{ 'layout.footer.accepted_payments' | t }}</h4>
-              <ul class="inline-list payment-icons">
-                {% for type in shop.enabled_payment_types %}
-                  {% if payment_icons_available contains type %}
-                    <li>
-                      <span class="icon-fallback-text">
-                        <span class="icon icon-{{type}}" aria-hidden="true"></span>
-                        <span class="fallback-text">{{ type | replace: '_',' '}}</span>
-                      </span>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {% endunless %}
-            <a href="http://shopify.com/timber">Timber Theme Framework</a> by <a href="http://www.shopify.com?ref=Timber" title="Shopify.com">Shopify</a><br>
-            <small>{{ powered_by_link }}</small>
           </div>
         </div>
-      </div>
-    </footer>
-    <!-- //site-footer -->
-  </div>
+      </footer>
+      <!-- //site-footer -->
+    </div>
+  </main>
 
   {{ 'fastclick.min.js' | asset_url | script_tag }}
   {{ 'timber.js' | asset_url | script_tag }}
