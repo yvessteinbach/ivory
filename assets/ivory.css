@@ -66,6 +66,9 @@
     margin: 0 10px 5px 0;
     text-transform: uppercase;
   }
+  .header__login {
+    padding: 0 0 0 -10px;
+  }
 
   .header__menu-list {
     padding: 10px 0 0 0;
