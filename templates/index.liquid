@@ -1,15 +1,7 @@
-<!-- /templates/index.liquid -->
-<div class="grid-uniform">
-  {% for product in collections.frontpage.products limit:4 %}
-    {% comment %}
-      Change the grid item width by using classes from the grid in
-      the grid_item_width variable.
-
-      Example:
-        - {% assign grid_item_width = 'large--one-third medium--one-half' %}
-    {% endcomment %}
-    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
-    {% include 'product-grid-item' %}
-  {% endfor %}
-
+<!-- Banner -->
+<div class="banner__wrapper">
+  <a class="banner-slide" href="">
+    <img src="https://pesoclo.com/cdn/shop/files/Web_2.jpg?v=1686126107">
+  </a>
 </div>
+<!-- End Banner -->
