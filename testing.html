@@ -2,12 +2,41 @@
     .product__container {
         position: relative;
         width: 100%;
+        display: flex;
 
         background-color: pink;
+    }
+    .product__image--container {
+        width: 100%;
+        background-color: cadetblue;
+    }
+    .product__assets--container {
+        width: 1000%;
+        background-color: darkslategrey;
     }
 </style>
 
 <div class="product__container">
-    {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-    <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+    <div class="product__image--container">
+        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+        <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+
+        {% if product.images.size > 1 %}
+        <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+
+          {% for image in product.images %}
+            <li class="grid__item one-quarter">
+              <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
+                <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+              </a>
+            </li>
+          {% endfor %}
+
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="product__assets--container">
+
+    </div>
 </div>
