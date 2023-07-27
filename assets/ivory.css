@@ -42,6 +42,9 @@
   .header__logo-container {
     display: flex;
   }
+  .header__logo {
+    fill: #000;
+  }
   .header__navigation--second {
     display: block;
     z-index: 1;
@@ -152,20 +155,9 @@
     display: flex;
   }
 
-  .banner__wrapper {
-    position: absolute;
-    z-index: -99;
-    width: 100%;
-    overflow: hidden;
-  }
-
   /* 
     Index 
   */
-  .banner-slide {
-    width: 100%;
-    overflow: hidden;
-  }
 
 
   .grid__item {
