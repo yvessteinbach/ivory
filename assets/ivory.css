@@ -42,9 +42,6 @@
   .header__logo-container {
     display: flex;
   }
-  .header__logo {
-    fill: #000;
-  }
   .header__navigation--second {
     display: block;
     z-index: 1;

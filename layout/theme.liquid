@@ -44,6 +44,21 @@
     {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
   {% endif %}
 
+  <style>
+    .header__logo {
+        fill: #fff;
+    }
+    .header-search--btn {
+        fill: #fff;
+    }
+    .header__icon--world {
+        fill: #fff;
+    }
+    .header__menu-list a {
+        color: #fff;
+    }
+</style>
+
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
