@@ -146,6 +146,7 @@
   }
 
   .main__sizing {
+    position: absolute;
     z-index: 99;
     max-width: 90vw;
     margin: 0 auto;
