@@ -39,19 +39,23 @@
       margin-left: -15px;
       margin-right: -15px;
     }
-    .product__image--container {
+    .product__gallery--container {
       width: 50vw;
       background-color: cadetblue;
     }
-    .product__assets--container {
+    .product__details--container {
       width: 100%;
       background-color: darkslategrey;
+      align-self: flex-start;
+      padding-left: 15px;
+      position: sticky;
+      top: -1px;
     }
   </style>
 
   <div class="product__container">
       <div class="row">
-          <div class="product__image--container">
+          <div class="product__gallery--container">
               {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
               <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
       
@@ -70,7 +74,7 @@
               {% endif %}
           </div>
       
-          <div class="product__assets--container">
+          <div class="product__details--container">
             <h1 itemprop="name">{{ product.title }}</h1>
       
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">
