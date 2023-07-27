@@ -62,6 +62,9 @@
 
     <div class="product__assets--container">
       <h1 itemprop="name">{{ product.title }}</h1>
+      <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+        {{ current_variant.price | money }}
+      </span>
     </div>
 </div>
 
