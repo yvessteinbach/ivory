@@ -156,6 +156,13 @@
     margin: 0 0 20px;
   }
 
+  .main__sizing {
+    z-index: -99;
+    position: absolute;
+    float: right;
+    width: 100vw;
+    height: 100vw;
+  }
   .main__container {
     max-width: 70vw;
     background-color: pink;

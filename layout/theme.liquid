@@ -49,10 +49,8 @@
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 
   <div class="container">
-    <div class="banner__wrapper">
-      <a class="banner-slide" href="">
-        <img src="Web_2.webp">
-      </a>
+    <div class="main__sizing">
+      {{ content_for_layout }}
     </div>
   
     <header class="header__container">
@@ -193,7 +191,6 @@
           </li>     
         </ul>
       </div>
-      {{ content_for_layout }}
     </main>
     
     <div class="footer">
