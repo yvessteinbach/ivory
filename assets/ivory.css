@@ -146,9 +146,16 @@
   }
 
   .main__sizing {
-    z-index: 99;
     max-width: 90vw;
     margin: 0 auto;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .main__container {
     max-width: 70vw;
