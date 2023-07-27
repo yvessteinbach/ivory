@@ -28,7 +28,7 @@
     }
     .product__price span {
       font-weight: 600;
-      font-size: 16px;
+      font-size: 12px;
     }
     .product__price p {
       font-weight: 500;
@@ -102,10 +102,10 @@
                 <h1 itemprop="name">{{ product.title }}</h1>
               </div>
         
-                <div class="product__price">
-                    <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
-                    <p class="pdp_shipping-info">inkl. Steuern &amp; Zölle/zzgl. <a href="" target="_blank">Versandkosten</a></p>
-                </div>
+              <div class="product__price">
+                  <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
+                  <p class="pdp_shipping-info">inkl. Steuern &amp; Zölle/zzgl. <a href="" target="_blank">Versandkosten</a></p>
+              </div>
             </div>
         
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">
