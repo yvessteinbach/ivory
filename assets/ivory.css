@@ -124,15 +124,15 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     justify-content: space-between;
-    padding: 0 30px 2px;
-    background: #fff;
     position: relative;
-    width: 100vw;
     bottom: 0;
+    width: 100vw;
+    background: #fff;
   }
   #footer {
     max-width: 90vw;
     margin: 0 auto;
+    border-top: 1px solid #828282;
   }
   .footer__links {
     -webkit-box-flex: 0;
