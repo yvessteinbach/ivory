@@ -130,7 +130,7 @@
     width: 100vw;
     bottom: 0;
   }
-  footer {
+  #footer {
     max-width: 90vw;
     margin: 0 auto;
   }
