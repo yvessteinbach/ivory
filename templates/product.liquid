@@ -62,21 +62,16 @@
 
     <div class="product__assets--container">
       <h1 itemprop="name">{{ product.title }}</h1>
-      <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-        {{ current_variant.price | money }}
-      </span>
+
+      <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+      <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
+
     </div>
 </div>
 
   <div>
     <div class="grid__item large--one-half">
-
-      <h1 itemprop="name">{{ product.title }}</h1>
-
       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-
-        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
         {% comment %}
           ID addToCartForm is a selector for the ajax cart plugin
