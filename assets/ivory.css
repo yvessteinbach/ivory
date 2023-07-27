@@ -115,7 +115,7 @@
     width: 100%;
   }
 
-  footer {
+  .footer {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     -webkit-box-pack: justify;
@@ -125,14 +125,10 @@
     justify-content: flex-start;
     justify-content: space-between;
     padding: 0 30px 2px;
-    background: #000;
+    background: #fff;
     position: relative;
     width: 100vw;
     bottom: 0;
-  }
-  .footer {
-    bottom: 0;
-    width: 100%;
   }
   .footer__links {
     -webkit-box-flex: 0;
