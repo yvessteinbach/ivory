@@ -146,7 +146,6 @@
   }
 
   .main__sizing {
-    z-index: -99;
     position: absolute;
     float: right;
     width: 100vw;
