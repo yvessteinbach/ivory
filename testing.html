@@ -7,16 +7,39 @@
         display: flex;
         justify-content: space-between;
     }
+    .product__title {
+        font-size: 12px;
+    }
+    .product-price {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .pdp_shipping-info {
+        color: gray;
+        font-size: 8px;
+    }
 </style>
 
 
 <div class="product__details--container">
     <div class="product__title-wrapper">
         <h1 class="product__title" itemprop="name">{{ product.title }}</h1>
+
+        <div class="product__price">
+            <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
+            <p class="pdp_shipping-info">inkl. Steuern &amp; Zölle/zzgl. <a href="" target="_blank">Versandkosten</a></p>
+        </div>
     </div>
 
     <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-    <span itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">{{ current_variant.price | money }}</span>
 
     <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
       <select name="id" id="productSelect" class="product-single__variants">
