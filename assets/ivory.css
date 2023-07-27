@@ -13,7 +13,6 @@
     letter-spacing: .45px;
     line-height: 18px;
     color: #000;
-    background-color: #fff;
   }
   a {
     background-color: transparent;
@@ -145,7 +144,6 @@
 
   .main__container {
     max-width: 70vw;
-    background-color: pink;
     position: absolute;
     display: flex;
     justify-content: center;
