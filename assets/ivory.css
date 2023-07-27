@@ -130,7 +130,6 @@
     background: #fff;
   }
   #footer {
-    display: flex;
     max-width: 90vw;
     margin: 0 auto;
     border-top: 1px solid rgba(0,0,0,.3);
