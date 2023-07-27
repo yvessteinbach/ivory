@@ -139,7 +139,7 @@
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     display: block;
-    margin: 0 0 15px;
+    margin: 15px 0 15px;
   }
   .footer__links>a:not(:last-child){
     margin: 0 10px 0 0;
