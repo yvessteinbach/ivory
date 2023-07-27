@@ -146,8 +146,7 @@
   }
 
   .main__sizing {
-    float: right;
-    z-index: 0;
+    z-index: 99;
     max-width: 90vw;
     margin: 0 auto;
   }
